@@ -1,0 +1,20 @@
+
+version: '3'
+
+services:
+    database:
+        image: postgres
+        container_name: search-products
+        restart: always
+        ports:
+            - 5433:5432
+        environment:
+            - POSTGRES_USER=search-products
+            - POSTGRES_PASSWORD=123456
+            - POSTGRES_DB=search-products
+        volumes:
+            - pgdata:/data/postgres
+
+volumes:
+    pgdata:
+        driver: local
